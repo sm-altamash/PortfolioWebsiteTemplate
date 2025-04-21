@@ -1,6 +1,6 @@
 
 import { useState, useRef, useEffect } from "react";
-import { Mail, Phone, GitHub, Linkedin } from "lucide-react";
+import { Mail, Phone, Github, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -97,7 +97,7 @@ const Contact = () => {
                 
                 <div className="flex items-center">
                   <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                    <GitHub className="text-blue-600" size={20} />
+                    <Github className="text-blue-600" size={20} />
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-gray-700 mb-1">GitHub</h4>
@@ -120,7 +120,7 @@ const Contact = () => {
                 <h4 className="text-lg font-semibold text-gray-800 mb-3">Connect with me</h4>
                 <div className="flex space-x-4">
                   <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
-                    <GitHub size={18} />
+                    <Github size={18} />
                   </a>
                   <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
                     <Linkedin size={18} />
@@ -191,3 +191,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
