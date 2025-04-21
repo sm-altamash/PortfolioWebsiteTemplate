@@ -1,11 +1,13 @@
 
 import { useEffect, useRef } from "react";
+import { Code, FileCode, Table, Database } from "lucide-react";
 
 type SkillCategory = {
   title: string;
   skills: {
     name: string;
     icon: string;
+    customIcon?: React.ReactNode;
   }[];
 };
 
@@ -38,11 +40,11 @@ const Skills = () => {
       skills: [
         { name: "HTML", icon: "html5" },
         { name: "CSS", icon: "css3" },
-        { name: "JavaScript", icon: "js" },
+        { name: "JavaScript", icon: "javascript", customIcon: <Code className="w-10 h-10 text-yellow-500" /> },
         { name: "Bootstrap", icon: "bootstrap" },
-        { name: "Tailwind CSS", icon: "tailwind" },
+        { name: "Tailwind CSS", icon: "tailwind", customIcon: <Code className="w-10 h-10 text-sky-500" /> },
         { name: "jQuery", icon: "jquery" },
-        { name: "AJAX", icon: "js" },
+        { name: "AJAX", icon: "ajax", customIcon: <FileCode className="w-10 h-10 text-blue-600" /> },
       ]
     },
     {
@@ -60,7 +62,7 @@ const Skills = () => {
         { name: "GitHub", icon: "github" },
         { name: "GitLab", icon: "gitlab" },
         { name: "VS Code", icon: "vscode" },
-        { name: "DataTables", icon: "table" },
+        { name: "DataTables", icon: "datatables", customIcon: <Table className="w-10 h-10 text-blue-700" /> },
       ]
     }
   ];
@@ -91,15 +93,19 @@ const Skills = () => {
                     style={{ animationDelay: `${skillIndex * 0.1}s` }}
                   >
                     <div className="w-12 h-12 mb-3 flex items-center justify-center">
-                      <img 
-                        src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`} 
-                        alt={skill.name}
-                        onError={(e) => {
-                          e.currentTarget.onerror = null;
-                          e.currentTarget.src = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-plain.svg`;
-                        }}
-                        className="w-10 h-10"
-                      />
+                      {skill.customIcon ? (
+                        skill.customIcon
+                      ) : (
+                        <img 
+                          src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`} 
+                          alt={skill.name}
+                          onError={(e) => {
+                            e.currentTarget.onerror = null;
+                            e.currentTarget.src = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-plain.svg`;
+                          }}
+                          className="w-10 h-10"
+                        />
+                      )}
                     </div>
                     <span className="text-sm font-medium text-gray-700">{skill.name}</span>
                   </div>
